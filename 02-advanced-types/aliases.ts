@@ -2,7 +2,7 @@ type httpMethod = 'post' | 'get';
 
 type coolString = string;
 
-function fetchWithAuth(url: string, method: httpMethod): 1 | -1 {
+function fetchWithAuthTwo(url: string, method: httpMethod): 1 | -1 {
     return 1;
 }
 
@@ -18,11 +18,11 @@ type Role = {
 }
 
 // type UserWithRole = User | Role;
-// type UserWithRole = User & Role;
-type UserWithRole = {
-    user: User,
-    role: Role
-}
+type UserWithRole = User & Role;
+// type UserWithRole = {
+//     user: User,
+//     role: Role
+// }
 
 let user_2: UserWithRole = {
     name: 'Joe',
