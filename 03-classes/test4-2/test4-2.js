@@ -3,18 +3,21 @@ var TUser = /** @class */ (function () {
     function TUser() {
         this.skills = [];
     }
-    TUser.prototype.addSkill = function (skills) {
-        var _a;
-        if (typeof skills === 'string') {
-            this.skills.push(skills);
+    TUser.prototype.addSkill = function (skillOrSkills) {
+        if (typeof skillOrSkills === 'string') {
+            this.skills.push(skillOrSkills);
         }
-        else if (typeof skills === 'object') {
-            (_a = this.skills).push.apply(_a, skills);
+        else {
+            this.skills.concat(skillOrSkills);
         }
     };
     return TUser;
 }());
-var tuser = new TUser();
-tuser.addSkill(['one', 'two']);
-tuser.addSkill('three');
-console.log(tuser.skills);
+function run(distance) {
+    if (typeof distance === 'number') {
+        return 1;
+    }
+    else {
+        return '';
+    }
+}
