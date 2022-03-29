@@ -36,6 +36,8 @@ class ParsistendEPayment extends EPayment {
 
 new ParsistendEPayment();
 
+
+/* features of inheritance */
 class EUser {
     name: string = 'user';
 
@@ -66,3 +68,4 @@ class HttpError extends Error {
         this.code = code ?? 500;
     }
 }
+

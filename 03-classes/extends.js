@@ -43,6 +43,7 @@ var ParsistendEPayment = /** @class */ (function (_super) {
     return ParsistendEPayment;
 }(EPayment));
 new ParsistendEPayment();
+/* features of inheritance */
 var EUser = /** @class */ (function () {
     function EUser() {
         this.name = 'user';
@@ -61,3 +62,13 @@ var EAdmin = /** @class */ (function (_super) {
     return EAdmin;
 }(EUser));
 new EAdmin();
+// new Error('');
+var HttpError = /** @class */ (function (_super) {
+    __extends(HttpError, _super);
+    function HttpError(message, code) {
+        var _this = _super.call(this, message) || this;
+        _this.code = code !== null && code !== void 0 ? code : 500;
+        return _this;
+    }
+    return HttpError;
+}(Error));
