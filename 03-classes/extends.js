@@ -42,4 +42,22 @@ var ParsistendEPayment = /** @class */ (function (_super) {
     };
     return ParsistendEPayment;
 }(EPayment));
-// new ParsistendEPayment().
+new ParsistendEPayment();
+var EUser = /** @class */ (function () {
+    function EUser() {
+        this.name = 'user';
+        console.log(this.name);
+    }
+    return EUser;
+}());
+var EAdmin = /** @class */ (function (_super) {
+    __extends(EAdmin, _super);
+    function EAdmin() {
+        var _this = _super.call(this) || this;
+        _this.name = 'admin';
+        console.log(_this.name);
+        return _this;
+    }
+    return EAdmin;
+}(EUser));
+new EAdmin();
