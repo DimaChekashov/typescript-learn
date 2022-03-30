@@ -37,3 +37,30 @@ var coUsers = new CoUsers();
 coUsers.push(new CoUser('Vasya'));
 coUsers.push(new CoUser('Dima'));
 console.log(coUsers.toString());
+var CoUserList = /** @class */ (function () {
+    function CoUserList() {
+    }
+    CoUserList.prototype.push = function (u) {
+        this.users.push(u);
+    };
+    return CoUserList;
+}());
+var CoPayment = /** @class */ (function () {
+    function CoPayment() {
+    }
+    return CoPayment;
+}());
+var CoUserWithPayment = /** @class */ (function (_super) {
+    __extends(CoUserWithPayment, _super);
+    function CoUserWithPayment() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return CoUserWithPayment;
+}(CoPayment));
+var CoUserWithPayment2 = /** @class */ (function () {
+    function CoUserWithPayment2(user, payment) {
+        this.payment = payment;
+        this.user = user;
+    }
+    return CoUserWithPayment2;
+}());
