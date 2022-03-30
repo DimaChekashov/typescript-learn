@@ -14,36 +14,31 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var TPayment = /** @class */ (function () {
-    function TPayment() {
-        var _this = this;
-        this.date = new Date();
-        this.getDateArrow = function () {
-            return _this.date;
-        };
+var TUserBuilder = /** @class */ (function () {
+    function TUserBuilder() {
     }
-    TPayment.prototype.getDate = function () {
-        return this.date;
+    TUserBuilder.prototype.setName = function (name) {
+        this.name = name;
+        return this;
     };
-    return TPayment;
+    TUserBuilder.prototype.isAdmin = function () {
+        return this instanceof TAdminBuilder;
+    };
+    return TUserBuilder;
 }());
-var tp = new TPayment();
-var tuser = {
-    id: 1,
-    paymentDate: tp.getDate.bind(tp),
-    paymentDateArrow: tp.getDateArrow
-};
-console.log(tp.getDate());
-console.log(tuser.paymentDate());
-console.log(tuser.paymentDateArrow());
-var TPaymentPersistent = /** @class */ (function (_super) {
-    __extends(TPaymentPersistent, _super);
-    function TPaymentPersistent() {
+var TAdminBuilder = /** @class */ (function (_super) {
+    __extends(TAdminBuilder, _super);
+    function TAdminBuilder() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    TPaymentPersistent.prototype.save = function () {
-        return this.getDateArrow();
-    };
-    return TPaymentPersistent;
-}(TPayment));
-console.log(new TPaymentPersistent().save());
+    return TAdminBuilder;
+}(TUserBuilder));
+var tres = new TUserBuilder().setName('Vasya');
+var tres2 = new TAdminBuilder().setName('Vasya');
+var ttuser = new TUserBuilder();
+if (ttuser.isAdmin()) {
+    console.log(ttuser);
+}
+else {
+    console.log(ttuser);
+}
