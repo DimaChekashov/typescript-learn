@@ -1,3 +1,2 @@
-"use strict";
-/// <reference path="./module/namespaces-and-reference.ts" />
+import { A } from './module/namespaces-and-reference.js';
 console.log(A.a);
