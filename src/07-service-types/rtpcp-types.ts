@@ -15,4 +15,4 @@ type PT = Parameters<typeof rGetData>;
 type first = PT[0];
 
 type CP = ConstructorParameters<typeof RUser>;
-type IT = InstanceType<typeof RUser>;
+type InT = InstanceType<typeof RUser>;
