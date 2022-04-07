@@ -5,5 +5,3 @@ namespace A {
         c: number;
     }
 }
-
-A.a
