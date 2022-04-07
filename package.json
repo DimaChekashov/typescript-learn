@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/DimaChekashov/typescript-learn#readme",
   "dependencies": {
+    "really-relaxed-json": "^0.3.1",
     "reflect-metadata": "^0.1.13"
   }
 }
