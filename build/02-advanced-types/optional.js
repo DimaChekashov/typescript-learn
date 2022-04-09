@@ -13,6 +13,6 @@ function testPass(block) {
     var _a;
     var t = (_a = block.password) === null || _a === void 0 ? void 0 : _a.type;
 }
-function test(param) {
+function test2(param) {
     var t = param !== null && param !== void 0 ? param : multiply(5);
 }

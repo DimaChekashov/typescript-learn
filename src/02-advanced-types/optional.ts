@@ -27,6 +27,6 @@ function testPass(block: BlockPro) {
     const t = block.password?.type;
 }
 
-function test(param?: string) {
+function test2(param?: string) {
     const t = param ?? multiply(5);
 }

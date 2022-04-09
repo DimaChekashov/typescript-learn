@@ -43,7 +43,7 @@ var PersistentDBAdapter = /** @class */ (function (_super) {
     };
     return PersistentDBAdapter;
 }(KVDatabase));
-function run(base) {
+function runD(base) {
     base.save('key', 'myValue');
 }
-run(new PersistentDBAdapter(new PersistentDB));
+runD(new PersistentDBAdapter(new PersistentDB));

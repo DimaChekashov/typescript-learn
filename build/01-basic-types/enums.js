@@ -25,6 +25,6 @@ var Roles;
     Roles[Roles["ADMIN"] = 1] = "ADMIN";
     Roles[Roles["USER"] = compute()] = "USER";
 })(Roles || (Roles = {}));
-function test(x) {
+function test3(x) {
 }
-test(Roles);
+test3(Roles);

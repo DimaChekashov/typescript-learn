@@ -30,11 +30,11 @@ enum Roles {
     USER = compute()
 }
 
-function test(x: {ADMIN: number}) {
+function test3(x: {ADMIN: number}) {
 
 }
 
-test(Roles);
+test3(Roles);
 
 const enum Sizes {
     SMALL = 1,
