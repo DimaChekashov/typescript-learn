@@ -47,3 +47,36 @@ function runD(base) {
     base.save('key', 'myValue');
 }
 runD(new PersistentDBAdapter(new PersistentDB));
+var KVADatabase = /** @class */ (function () {
+    function KVADatabase() {
+        this.db = new Map();
+    }
+    KVADatabase.prototype.save = function (key, value) {
+        this.db.set(key, value);
+    };
+    return KVADatabase;
+}());
+var PersistentDBA = /** @class */ (function () {
+    function PersistentDBA() {
+    }
+    PersistentDBA.prototype.savePersistent = function (data) {
+        console.log(data);
+    };
+    return PersistentDBA;
+}());
+var PersistentDBAAdapter = /** @class */ (function (_super) {
+    __extends(PersistentDBAAdapter, _super);
+    function PersistentDBAAdapter(database) {
+        var _this = _super.call(this) || this;
+        _this.database = database;
+        return _this;
+    }
+    PersistentDBAAdapter.prototype.save = function (key, value) {
+        this.database.savePersistent({ key: value });
+    };
+    return PersistentDBAAdapter;
+}(KVADatabase));
+function aRun(base) {
+    base.save('key', 'myValue');
+}
+aRun(new PersistentDBAAdapter(new PersistentDBA));
