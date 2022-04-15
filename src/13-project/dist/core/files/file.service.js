@@ -36,22 +36,51 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.App = void 0;
-var ffmpeg_executor_1 = require("./commands/ffmpeg/ffmpeg.executor");
-var console_logger_1 = require("./out/console-logger/console-logger");
-var App = /** @class */ (function () {
-    function App() {
+exports.FileService = void 0;
+var fs_1 = require("fs");
+var path_1 = require("path");
+var FileService = /** @class */ (function () {
+    function FileService() {
     }
-    App.prototype.run = function () {
+    FileService.prototype.isExist = function (path) {
         return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                new ffmpeg_executor_1.FfmpegExecutor(console_logger_1.ConsoleLogger.getInstance()).execute();
-                return [2 /*return*/];
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _b.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, fs_1.promises.stat(path)];
+                    case 1:
+                        _b.sent();
+                        return [2 /*return*/, true];
+                    case 2:
+                        _a = _b.sent();
+                        return [2 /*return*/, false];
+                    case 3: return [2 /*return*/];
+                }
             });
         });
     };
-    return App;
+    FileService.prototype.getFilePath = function (path, name, ext) {
+        if (!(0, path_1.isAbsolute)(path)) {
+            path = (0, path_1.join)(__dirname + '/' + path);
+        }
+        return (0, path_1.join)((0, path_1.dirname)(path) + '/' + name + '.' + ext);
+    };
+    FileService.prototype.deleteFileIfExists = function (path) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.isExist(path)];
+                    case 1:
+                        if (_a.sent()) {
+                            fs_1.promises.unlink(path);
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return FileService;
 }());
-exports.App = App;
-var app = new App();
-app.run();
+exports.FileService = FileService;

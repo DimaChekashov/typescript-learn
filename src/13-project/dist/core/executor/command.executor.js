@@ -36,22 +36,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.App = void 0;
-var ffmpeg_executor_1 = require("./commands/ffmpeg/ffmpeg.executor");
-var console_logger_1 = require("./out/console-logger/console-logger");
-var App = /** @class */ (function () {
-    function App() {
+exports.CommandExecutor = void 0;
+var CommandExecutor = /** @class */ (function () {
+    function CommandExecutor(logger) {
+        this.logger = logger;
     }
-    App.prototype.run = function () {
+    CommandExecutor.prototype.execute = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var input, command, stream;
             return __generator(this, function (_a) {
-                new ffmpeg_executor_1.FfmpegExecutor(console_logger_1.ConsoleLogger.getInstance()).execute();
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.prompt()];
+                    case 1:
+                        input = _a.sent();
+                        command = this.build(input);
+                        stream = this.spawn(command);
+                        this.processStream(stream, this.logger);
+                        return [2 /*return*/];
+                }
             });
         });
     };
-    return App;
+    return CommandExecutor;
 }());
-exports.App = App;
-var app = new App();
-app.run();
+exports.CommandExecutor = CommandExecutor;
