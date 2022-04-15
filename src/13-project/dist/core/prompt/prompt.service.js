@@ -35,28 +35,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.App = void 0;
-var prompt_service_1 = require("./core/prompt/prompt.service");
-var App = /** @class */ (function () {
-    function App() {
+exports.PromptService = void 0;
+var inquirer_1 = __importDefault(require("inquirer"));
+var PromptService = /** @class */ (function () {
+    function PromptService() {
     }
-    App.prototype.run = function () {
+    PromptService.prototype.input = function (message, type) {
         return __awaiter(this, void 0, void 0, function () {
-            var res;
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, (new prompt_service_1.PromptService()).input('Число', 'number')];
+                    case 0: return [4 /*yield*/, inquirer_1.default.prompt([
+                            {
+                                type: type,
+                                name: 'result',
+                                message: message
+                            }
+                        ])];
                     case 1:
-                        res = _a.sent();
-                        console.log(res);
-                        return [2 /*return*/];
+                        result = (_a.sent()).result;
+                        return [2 /*return*/, result];
                 }
             });
         });
     };
-    return App;
+    return PromptService;
 }());
-exports.App = App;
-var app = new App();
-app.run();
+exports.PromptService = PromptService;
